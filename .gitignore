@@ -16,7 +16,6 @@
 .idea/
 
 # VSCode related
-.vscode/
 
 # Flutter/Dart/Pub related
 **/doc/api/
@@ -41,3 +40,5 @@ app.*.map.json
 
 # Test related
 coverage
+config.bat
+node_modules
