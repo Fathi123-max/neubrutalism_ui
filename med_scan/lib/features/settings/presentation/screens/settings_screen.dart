@@ -32,9 +32,9 @@ class SettingsScreen extends StatelessWidget {
               Text(
                 'Appearance',
                 style: GoogleFonts.pressStart2p(
-                  textStyle: const TextStyle(
+                  textStyle: TextStyle(
                     fontSize: 16,
-                    color: Colors.black54,
+                    color: Theme.of(context).textTheme.bodyLarge?.color,
                     height: 1.5,
                   ),
                 ),

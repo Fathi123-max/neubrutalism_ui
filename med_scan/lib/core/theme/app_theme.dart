@@ -12,8 +12,14 @@ class AppTheme {
   static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,
-      colorScheme: ColorScheme.fromSeed(
-        seedColor: AppColors.primaryColor,
+      colorScheme: const ColorScheme.light(
+        primary: AppColors.primaryColor,
+        secondary: AppColors.accentColor,
+        error: AppColors.errorColor,
+        surface: AppColors.lightSurface,
+        background: AppColors.lightBackground,
+        onBackground: AppColors.lightTextPrimary,
+        onSurface: AppColors.lightTextPrimary,
         brightness: Brightness.light,
       ),
       appBarTheme: const AppBarTheme(
@@ -54,8 +60,14 @@ class AppTheme {
   static ThemeData get darkTheme {
     return ThemeData(
       useMaterial3: true,
-      colorScheme: ColorScheme.fromSeed(
-        seedColor: AppColors.primaryColor,
+      colorScheme: const ColorScheme.dark(
+        primary: AppColors.primaryColor,
+        secondary: AppColors.secondaryAccent,
+        error: AppColors.darkErrorColor,
+        surface: AppColors.darkSurface,
+        background: AppColors.darkBackground,
+        onBackground: AppColors.darkTextPrimary,
+        onSurface: AppColors.darkTextPrimary,
         brightness: Brightness.dark,
       ),
       appBarTheme: const AppBarTheme(

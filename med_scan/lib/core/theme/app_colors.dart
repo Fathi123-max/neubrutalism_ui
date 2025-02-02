@@ -1,33 +1,33 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  // Primary Colors
-  static const Color primaryColor = Color(0xFFF0E4E4);
-  static const MaterialColor primarySwatch = Colors.teal;
+  // Primary Colors - Medical Blue
+  static const Color primaryColor = Color(0xFF4A90E2);
+  static const MaterialColor primarySwatch = Colors.blue;
 
-  // Background Colors
-  static const Color lightBackground = Color(0xFFF0E4E4);
-  static const Color darkBackground = Color(0xFF121212);
+  // Background Colors - Clean and Professional
+  static const Color lightBackground = Color(0xFFF5F8FA);
+  static const Color darkBackground = Color(0xFF1A1F24);
 
-  // Text Colors
-  static const Color lightTextPrimary = Color(0xFF000000);
-  static const Color lightTextSecondary = Color(0xFF757575);
-  static const Color darkTextPrimary = Color(0xFFFFFFFF);
-  static const Color darkTextSecondary = Color(0xFFB3B3B3);
+  // Text Colors - High Contrast for Readability
+  static const Color lightTextPrimary = Color(0xFF2C3E50);
+  static const Color lightTextSecondary = Color(0xFF7F8C8D);
+  static const Color darkTextPrimary = Color(0xFFECF0F1);
+  static const Color darkTextSecondary = Color(0xFFBDC3C7);
 
-  // Surface Colors
+  // Surface Colors - Subtle Medical Theme
   static const Color lightSurface = Color(0xFFFFFFFF);
-  static const Color darkSurface = Color(0xFF1E1E1E);
+  static const Color darkSurface = Color(0xFF22272E);
 
-  // Accent Colors
-  static const Color accentColor = Colors.teal;
-  static const Color secondaryAccent = Color(0xFF03DAC6);
+  // Accent Colors - Healing Green
+  static const Color accentColor = Color(0xFF2ECC71);
+  static const Color secondaryAccent = Color(0xFF27AE60);
 
-  // Error Colors
-  static const Color errorColor = Color(0xFFB00020);
-  static const Color darkErrorColor = Color(0xFFCF6679);
+  // Error Colors - Muted Red for Medical Context
+  static const Color errorColor = Color(0xFFE74C3C);
+  static const Color darkErrorColor = Color(0xFFC0392B);
 
-  // Card Colors
+  // Card Colors - Clean Look
   static const Color cardLight = Color(0xFFFFFFFF);
-  static const Color cardDark = Color(0xFF424242);
+  static const Color cardDark = Color(0xFF2C3E50);
 }
