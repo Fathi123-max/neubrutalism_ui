@@ -1,4 +1,5 @@
 import 'package:example/features/home/presentation/screens/home_screen.dart';
+import 'package:example/features/medical_services/presentation/screens/analysis_history_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:example/views/language_screen.dart';
@@ -34,6 +35,12 @@ class AppRouter {
           ),
           GoRoute(
             path: '/medical-services',
+            routes: [
+              GoRoute(
+                path: "analysis-history",
+                builder: (context, state) => const AnalysisHistoryScreen(),
+              )
+            ],
             pageBuilder: (context, state) =>
                 const NoTransitionPage<void>(child: MedicalServicesScreen()),
           ),
