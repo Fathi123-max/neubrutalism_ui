@@ -1,31 +1,65 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:neubrutalism_ui/neubrutalism_ui.dart';
-import 'home_screen.dart';
-import 'medical_services_screen.dart';
-import 'settings_screen.dart';
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({Key? key}) : super(key: key);
+  final Widget child;
+  final String location;
+  const MainScreen({Key? key, required this.child, required this.location})
+      : super(key: key);
 
   @override
   State<MainScreen> createState() => _MainScreenState();
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int _currentIndex = 0;
+  late int _currentIndex;
   final ScrollController _scrollController = ScrollController();
 
-  final List<Widget> _screens = [
-    const HomeScreen(),
-    const MedicalServicesScreen(),
-    const SettingsScreen(),
-  ];
+  @override
+  void initState() {
+    super.initState();
+    _currentIndex = _calculateSelectedIndex(widget.location);
+  }
+
+  @override
+  void didUpdateWidget(MainScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    _currentIndex = _calculateSelectedIndex(widget.location);
+  }
+
+  int _calculateSelectedIndex(String location) {
+    if (location == '/') {
+      return 0;
+    }
+    if (location.startsWith('/medical-services')) {
+      return 1;
+    }
+    if (location.startsWith('/settings')) {
+      return 2;
+    }
+    return 0;
+  }
+
+  void _onDestinationSelected(int index) {
+    switch (index) {
+      case 0:
+        context.go('/');
+        break;
+      case 1:
+        context.go('/medical-services');
+        break;
+      case 2:
+        context.go('/settings');
+        break;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF0E4E4),
-      body: _screens[_currentIndex],
+      body: widget.child,
       bottomNavigationBar: NeuBottomNav(
         icons: const [
           Icons.home,
@@ -35,11 +69,7 @@ class _MainScreenState extends State<MainScreen> {
         isFloating: true,
         initialIconColor: Colors.black,
         navBarColor: const Color(0xFFF0E4E4),
-        onIconTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
+        onIconTap: _onDestinationSelected,
         autoHideOnScroll: false,
         scrollController: _scrollController,
         isSelectedColor: Colors.black,
