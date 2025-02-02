@@ -7,7 +7,6 @@ class AnalysisHistoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF0E4E4),
       appBar: AppBar(
         title: Text(
           'Analysis History',
@@ -20,7 +19,6 @@ class AnalysisHistoryScreen extends StatelessWidget {
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.black),
       ),
       body: SafeArea(
         child: ListView.builder(

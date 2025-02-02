@@ -70,7 +70,7 @@ class SettingsScreen extends StatelessWidget {
                       textStyle: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: Theme.of(context).colorScheme.onPrimary,
+                        color: Theme.of(context).textTheme.bodyLarge?.color,
                       ),
                     ),
                   ),
@@ -119,7 +119,7 @@ class SettingsScreen extends StatelessWidget {
                       textStyle: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: Theme.of(context).colorScheme.onPrimary,
+                        color: Theme.of(context).textTheme.bodyLarge?.color,
                       ),
                     ),
                   ),
@@ -132,8 +132,10 @@ class SettingsScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  trailing: Icon(Icons.arrow_forward_ios,
-                      color: Theme.of(context).colorScheme.onSecondary),
+                  trailing: Icon(
+                    Icons.arrow_forward_ios,
+                    color: Theme.of(context).textTheme.bodyLarge?.color,
+                  ),
                 ),
               ),
             ],
