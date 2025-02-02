@@ -29,8 +29,9 @@ class NeuTextButton extends NeuButton {
 
   NeuTextButton({
     Key? key,
-    required enableAnimation,
-    required this.text,
+    required bool enableAnimation,
+    Text? text,
+    Widget? child,
     int animationDuration = 100,
     Color borderColor = neuBlack,
     BorderRadius? borderRadius,
@@ -42,7 +43,11 @@ class NeuTextButton extends NeuButton {
     GestureTapCallback? onPressed,
     double shadowBlurRadius = neuShadowBlurRadius,
     Color shadowColor = neuShadow,
-  }) : super(
+  })  : assert(
+          text != null || child != null,
+          'Either text or child must be provided',
+        ),
+        super(
           animationDuration: animationDuration,
           borderColor: borderColor,
           borderRadius: borderRadius,
@@ -50,7 +55,7 @@ class NeuTextButton extends NeuButton {
           buttonColor: buttonColor,
           buttonHeight: buttonHeight,
           buttonWidth: buttonWidth,
-          child: text,
+          child: child ?? text,
           enableAnimation: enableAnimation,
           key: key,
           offset: offset,
@@ -58,8 +63,4 @@ class NeuTextButton extends NeuButton {
           shadowBlurRadius: shadowBlurRadius,
           shadowColor: shadowColor,
         );
-
-  ///
-  /// This Property helps to insert a Text Widget and Customize it according to your need
-  final Text text;
 }

@@ -14,9 +14,10 @@ class NeuBottomNav extends StatefulWidget {
   final Color initialIconColor;
   final Color navBarColor;
   final Color? isSelectedColor;
-  final bool autoHideOnScroll; // New parameter for auto hide
+  final bool autoHideOnScroll;
   final ScrollController scrollController;
   final int? autoHideDuration;
+  final int currentIndex;
 
   const NeuBottomNav({
     Key? key,
@@ -24,8 +25,8 @@ class NeuBottomNav extends StatefulWidget {
     required this.initialIconColor,
     required this.navBarColor,
     required this.onIconTap,
+    required this.currentIndex,
     this.isFloating = true,
-    //this.autoHide = false,
     this.floatingHeight,
     this.floatingWidth,
     this.stackedHeight,
@@ -33,7 +34,7 @@ class NeuBottomNav extends StatefulWidget {
     this.isSelectedColor = Colors.black,
     required this.autoHideOnScroll,
     required this.scrollController,
-    this.autoHideDuration = 300, // Default value is true
+    this.autoHideDuration = 300,
   }) : super(key: key);
 
   @override
@@ -41,7 +42,6 @@ class NeuBottomNav extends StatefulWidget {
 }
 
 class _NeuBottomNavState extends State<NeuBottomNav> {
-  int _currentIndex = 0;
   bool _isVisible = true;
 
   @override
@@ -55,13 +55,12 @@ class _NeuBottomNavState extends State<NeuBottomNav> {
   @override
   void dispose() {
     if (widget.autoHideOnScroll) {
-      widget.scrollController.dispose();
+      widget.scrollController.removeListener(_handleScroll);
     }
     super.dispose();
   }
 
   void _handleScroll() {
-    // Calculate the scroll direction
     bool scrollDown = widget.scrollController.position.userScrollDirection ==
         ScrollDirection.forward;
     if (scrollDown != _isVisible) {
@@ -77,7 +76,7 @@ class _NeuBottomNavState extends State<NeuBottomNav> {
       children: [
         Padding(
           padding: widget.isFloating
-              ? EdgeInsets.only(left: 14, right: 14, bottom: 25)
+              ? const EdgeInsets.only(left: 14, right: 14, bottom: 25)
               : EdgeInsets.zero,
           child: NeuContainer(
             height: widget.isFloating
@@ -86,7 +85,7 @@ class _NeuBottomNavState extends State<NeuBottomNav> {
             borderColor: widget.isFloating ? Colors.black : Colors.transparent,
             color: widget.navBarColor,
             shadowColor: widget.isFloating ? Colors.black : Colors.transparent,
-            offset: Offset(-1, -4),
+            offset: const Offset(-1, -4),
             borderRadius: BorderRadius.circular(20),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -95,20 +94,15 @@ class _NeuBottomNavState extends State<NeuBottomNav> {
                 children: [
                   for (int i = 0; i < widget.icons.length; i++)
                     GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          _currentIndex = i;
-                        });
-                        widget.onIconTap(i);
-                      },
+                      onTap: () => widget.onIconTap(i),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(20),
                         child: Stack(
                           children: [
                             AnimatedContainer(
-                              duration: Duration(milliseconds: 200),
+                              duration: const Duration(milliseconds: 200),
                               curve: Curves.easeInOut,
-                              color: _currentIndex == i
+                              color: widget.currentIndex == i
                                   ? widget.isSelectedColor
                                   : Colors.transparent,
                               width: 100,
@@ -116,8 +110,8 @@ class _NeuBottomNavState extends State<NeuBottomNav> {
                               child: Icon(
                                 widget.icons[i],
                                 size: 40,
-                                color: _currentIndex == i
-                                    ? Color.fromARGB(255, 190, 169, 224)
+                                color: widget.currentIndex == i
+                                    ? Colors.white
                                     : widget.initialIconColor,
                               ),
                             ),
@@ -125,11 +119,11 @@ class _NeuBottomNavState extends State<NeuBottomNav> {
                               top: 0,
                               left: 0,
                               child: AnimatedContainer(
-                                duration: Duration(milliseconds: 200),
+                                duration: const Duration(milliseconds: 200),
                                 alignment: Alignment.bottomRight,
                                 curve: Curves.easeIn,
-                                width: _currentIndex == i ? 0 : 100,
-                                height: _currentIndex == i ? 0 : 100,
+                                width: widget.currentIndex == i ? 0 : 100,
+                                height: widget.currentIndex == i ? 0 : 100,
                                 color: Colors.transparent,
                               ),
                             ),
@@ -145,18 +139,13 @@ class _NeuBottomNavState extends State<NeuBottomNav> {
       ],
     );
 
-    if (widget.autoHideOnScroll) {
-      setState(() {
-        bottomNavWidget = AnimatedOpacity(
-          opacity: _isVisible ? 1.0 : 0.0,
-          duration: Duration(milliseconds: widget.autoHideDuration!),
-          child: bottomNavWidget,
-        );
-      });
-      // Wrap the widget with AnimatedOpacity based on autoHideOnScroll parameter
-    }
-
-    return bottomNavWidget;
+    return widget.autoHideOnScroll
+        ? AnimatedOpacity(
+            opacity: _isVisible ? 1.0 : 0.0,
+            duration: Duration(milliseconds: widget.autoHideDuration!),
+            child: bottomNavWidget,
+          )
+        : bottomNavWidget;
   }
 }
 

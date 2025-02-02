@@ -1,4 +1,4 @@
-import 'package:example/views/mobile_view.dart';
+import 'package:example/views/main_screen.dart';
 import 'package:example/widgets/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -25,13 +25,12 @@ class SiteContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Responsive(
-      mobile: MobileView(),
+      mobile: MainScreen(),
       tablet: TabletView(),
       desktop: DesktopView(),
     );
   }
 }
-
 
 class TabletView extends StatelessWidget {
   const TabletView({Key? key}) : super(key: key);

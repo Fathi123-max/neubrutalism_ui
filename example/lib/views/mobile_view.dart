@@ -1,16 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:neubrutalism_ui/neubrutalism_ui.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class MobileView extends StatelessWidget {
   const MobileView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Color(0xFFF0E4E4),
-      body: Center(
+    return Scaffold(
+      bottomNavigationBar: NeuBottomNav(
+        icons: const [
+          Icons.home,
+          Icons.favorite,
+          Icons.settings,
+          Icons.person,
+        ],
+        isFloating: false,
+        initialIconColor: Colors.black,
+        navBarColor: const Color(0xFFF0E4E4),
+        onIconTap: (index) {
+          if (index == 0) {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const MobileView()),
+            );
+          }
+        },
+        autoHideOnScroll: false,
+        scrollController: ScrollController(),
+        currentIndex: 0,
+      ),
+      backgroundColor: const Color(0xFFF0E4E4),
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
