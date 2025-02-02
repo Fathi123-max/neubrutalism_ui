@@ -24,8 +24,9 @@ class SettingsScreen extends StatelessWidget {
                   'Settings',
                   style: GoogleFonts.pressStart2p(
                     textStyle: const TextStyle(
-                      fontSize: 28,
+                      fontSize: 32,
                       color: Colors.black,
+                      height: 1.2,
                     ),
                   ),
                 ),
@@ -39,7 +40,7 @@ class SettingsScreen extends StatelessWidget {
                           builder: (context) => const EditProfileScreen()),
                     );
                   },
-                  buttonHeight: 100,
+                  buttonHeight: 120,
                   buttonWidth: double.infinity,
                   buttonColor: const Color(0xFF9fb7f4),
                   borderRadius: BorderRadius.circular(20),
@@ -49,9 +50,9 @@ class SettingsScreen extends StatelessWidget {
                     child: Row(
                       children: [
                         const CircleAvatar(
-                          radius: 30,
+                          radius: 36,
                           backgroundColor: Colors.white,
-                          child: Icon(Icons.person, size: 40),
+                          child: Icon(Icons.person, size: 48),
                         ),
                         const SizedBox(width: 16),
                         Column(
@@ -62,8 +63,9 @@ class SettingsScreen extends StatelessWidget {
                               'John Doe',
                               style: GoogleFonts.pressStart2p(
                                 textStyle: const TextStyle(
-                                  fontSize: 16,
+                                  fontSize: 18,
                                   color: Colors.black,
+                                  height: 1.2,
                                 ),
                               ),
                             ),
@@ -72,8 +74,9 @@ class SettingsScreen extends StatelessWidget {
                               'Edit Profile',
                               style: GoogleFonts.inter(
                                 textStyle: const TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 16,
                                   color: Colors.black87,
+                                  height: 1.4,
                                 ),
                               ),
                             ),
@@ -89,8 +92,9 @@ class SettingsScreen extends StatelessWidget {
                   'App Settings',
                   style: GoogleFonts.inter(
                     textStyle: const TextStyle(
-                      fontSize: 20,
+                      fontSize: 24,
                       fontWeight: FontWeight.bold,
+                      height: 1.2,
                     ),
                   ),
                 ),
@@ -199,8 +203,9 @@ class SettingsScreen extends StatelessWidget {
                   'Account',
                   style: GoogleFonts.inter(
                     textStyle: const TextStyle(
-                      fontSize: 20,
+                      fontSize: 24,
                       fontWeight: FontWeight.bold,
+                      height: 1.2,
                     ),
                   ),
                 ),

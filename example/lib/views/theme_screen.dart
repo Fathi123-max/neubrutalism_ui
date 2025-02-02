@@ -31,8 +31,9 @@ class ThemeScreen extends StatelessWidget {
                       'Theme',
                       style: GoogleFonts.pressStart2p(
                         textStyle: const TextStyle(
-                          fontSize: 28,
+                          fontSize: 32,
                           color: Colors.black,
+                          height: 1.2,
                         ),
                       ),
                     ),
@@ -43,8 +44,9 @@ class ThemeScreen extends StatelessWidget {
                   'Select Theme',
                   style: GoogleFonts.inter(
                     textStyle: const TextStyle(
-                      fontSize: 20,
+                      fontSize: 24,
                       fontWeight: FontWeight.bold,
+                      height: 1.2,
                     ),
                   ),
                 ),
@@ -63,8 +65,9 @@ class ThemeScreen extends StatelessWidget {
                           'Light Theme',
                           style: GoogleFonts.inter(
                             textStyle: const TextStyle(
-                              fontSize: 18,
+                              fontSize: 20,
                               fontWeight: FontWeight.bold,
+                              height: 1.2,
                             ),
                           ),
                         ),
@@ -85,8 +88,9 @@ class ThemeScreen extends StatelessWidget {
                                 'Select',
                                 style: GoogleFonts.inter(
                                   textStyle: const TextStyle(
-                                    fontSize: 14,
+                                    fontSize: 16,
                                     color: Colors.black,
+                                    height: 1.2,
                                   ),
                                 ),
                               ),
@@ -112,8 +116,9 @@ class ThemeScreen extends StatelessWidget {
                           'Dark Theme',
                           style: GoogleFonts.inter(
                             textStyle: const TextStyle(
-                              fontSize: 18,
+                              fontSize: 20,
                               fontWeight: FontWeight.bold,
+                              height: 1.2,
                               color: Colors.white,
                             ),
                           ),
@@ -139,8 +144,9 @@ class ThemeScreen extends StatelessWidget {
                                 'Select',
                                 style: GoogleFonts.inter(
                                   textStyle: const TextStyle(
-                                    fontSize: 14,
+                                    fontSize: 16,
                                     color: Colors.black,
+                                    height: 1.2,
                                   ),
                                 ),
                               ),

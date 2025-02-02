@@ -20,14 +20,15 @@ class HomeScreen extends StatelessWidget {
                   'Home',
                   style: GoogleFonts.pressStart2p(
                     textStyle: const TextStyle(
-                      fontSize: 28,
+                      fontSize: 32,
                       color: Colors.black,
+                      height: 1.2,
                     ),
                   ),
                 ),
                 const SizedBox(height: 24),
                 NeuContainer(
-                  height: 220,
+                  height: 240,
                   width: double.infinity,
                   color: const Color(0xFF9fb7f4),
                   borderRadius: BorderRadius.circular(20),
@@ -43,9 +44,9 @@ class HomeScreen extends StatelessWidget {
                           'AI Body Analysis',
                           style: GoogleFonts.pressStart2p(
                             textStyle: const TextStyle(
-                              fontSize: 24,
+                              fontSize: 28,
                               color: Colors.black,
-                              height: 1.2,
+                              height: 1.4,
                             ),
                           ),
                           textAlign: TextAlign.center,
@@ -62,9 +63,10 @@ class HomeScreen extends StatelessWidget {
                             'Take a photo to analyze',
                             style: GoogleFonts.inter(
                               textStyle: const TextStyle(
-                                fontSize: 16,
+                                fontSize: 18,
                                 color: Colors.black87,
                                 fontWeight: FontWeight.w500,
+                                height: 1.4,
                               ),
                             ),
                           ),
