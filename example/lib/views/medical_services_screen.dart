@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:neubrutalism_ui/neubrutalism_ui.dart';
+import 'analysis_history_screen.dart';
 
 class MedicalServicesScreen extends StatelessWidget {
   const MedicalServicesScreen({Key? key}) : super(key: key);
@@ -32,7 +33,12 @@ class MedicalServicesScreen extends StatelessWidget {
                   buttonColor: const Color(0xFF9fb7f4),
                   borderRadius: BorderRadius.circular(20),
                   onPressed: () {
-                    // Handle analysis history tap
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AnalysisHistoryScreen(),
+                      ),
+                    );
                   },
                   enableAnimation: true,
                   child: Padding(

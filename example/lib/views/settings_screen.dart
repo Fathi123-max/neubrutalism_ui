@@ -1,6 +1,7 @@
 import 'package:example/views/theme_screen.dart';
 import 'package:example/views/language_screen.dart';
 import 'package:example/views/notification_screen.dart';
+import 'package:example/views/edit_profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:neubrutalism_ui/neubrutalism_ui.dart';
@@ -30,11 +31,19 @@ class SettingsScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 // User Profile Section
-                NeuContainer(
-                  height: 100,
-                  width: double.infinity,
-                  color: const Color(0xFF9fb7f4),
+                NeuTextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const EditProfileScreen()),
+                    );
+                  },
+                  buttonHeight: 100,
+                  buttonWidth: double.infinity,
+                  buttonColor: const Color(0xFF9fb7f4),
                   borderRadius: BorderRadius.circular(20),
+                  enableAnimation: true,
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Row(
