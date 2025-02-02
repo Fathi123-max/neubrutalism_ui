@@ -20,38 +20,35 @@ class AppRouter {
     routes: [
       ShellRoute(
         navigatorKey: _shellNavigatorKey,
-        builder: (context, state, child) => MainScreen(
-          child: child,
-          location: state.uri.toString(),
-        ),
+        builder: (context, state, child) {
+          return MainScreen(
+            location: state.uri.toString(),
+            child: child,
+          );
+        },
         routes: [
           GoRoute(
             path: '/',
-            pageBuilder: (context, state) => const NoTransitionPage(
-              child: HomeScreen(),
-            ),
-            routes: [
-              GoRoute(
-                path: 'language',
-                builder: (context, state) => const LanguageScreen(),
-              ),
-            ],
+            pageBuilder: (context, state) =>
+                const NoTransitionPage<void>(child: HomeScreen()),
           ),
           GoRoute(
             path: '/medical-services',
-            pageBuilder: (context, state) => const NoTransitionPage(
-              child: MedicalServicesScreen(),
-            ),
+            pageBuilder: (context, state) =>
+                const NoTransitionPage<void>(child: MedicalServicesScreen()),
           ),
           GoRoute(
             path: '/settings',
-            pageBuilder: (context, state) => const NoTransitionPage(
-              child: SettingsScreen(),
-            ),
+            pageBuilder: (context, state) =>
+                const NoTransitionPage<void>(child: SettingsScreen()),
             routes: [
               GoRoute(
                 path: 'theme',
                 builder: (context, state) => const ThemeScreen(),
+              ),
+              GoRoute(
+                path: 'language',
+                builder: (context, state) => const LanguageScreen(),
               ),
             ],
           ),

@@ -25,23 +25,33 @@ class _MainScreenState extends State<MainScreen> {
   @override
   void didUpdateWidget(MainScreen oldWidget) {
     super.didUpdateWidget(oldWidget);
-    _currentIndex = _calculateSelectedIndex(widget.location);
+    final newIndex = _calculateSelectedIndex(widget.location);
+    if (_currentIndex != newIndex) {
+      setState(() {
+        _currentIndex = newIndex;
+      });
+    }
   }
 
   int _calculateSelectedIndex(String location) {
-    if (location == '/') {
-      return 0;
+    final segments = Uri.parse(location).pathSegments;
+    if (segments.isEmpty) return 0;
+
+    final baseLocation = segments.first;
+    switch (baseLocation) {
+      case 'medical-services':
+        return 1;
+      case 'settings':
+        return 2;
+      default:
+        return 0;
     }
-    if (location.startsWith('/medical-services')) {
-      return 1;
-    }
-    if (location.startsWith('/settings')) {
-      return 2;
-    }
-    return 0;
   }
 
   void _onDestinationSelected(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
     switch (index) {
       case 0:
         context.go('/');
@@ -57,25 +67,30 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final segments = Uri.parse(widget.location).pathSegments;
+    final isNestedRoute = segments.length > 1;
+
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: widget.child,
-      bottomNavigationBar: NeuBottomNav(
-        icons: const [
-          Icons.home,
-          Icons.medical_services,
-          Icons.settings,
-        ],
-        isFloating: true,
-        initialIconColor:
-            Theme.of(context).textTheme.bodyLarge?.color ?? Colors.black,
-        navBarColor: Theme.of(context).scaffoldBackgroundColor,
-        onIconTap: _onDestinationSelected,
-        autoHideOnScroll: false,
-        scrollController: _scrollController,
-        isSelectedColor: Theme.of(context).primaryColor,
-        currentIndex: _currentIndex,
-      ),
+      bottomNavigationBar: isNestedRoute
+          ? null
+          : NeuBottomNav(
+              icons: const [
+                Icons.home,
+                Icons.medical_services,
+                Icons.settings,
+              ],
+              isFloating: true,
+              initialIconColor:
+                  Theme.of(context).textTheme.bodyLarge?.color ?? Colors.black,
+              navBarColor: Theme.of(context).scaffoldBackgroundColor,
+              onIconTap: _onDestinationSelected,
+              autoHideOnScroll: false,
+              scrollController: _scrollController,
+              isSelectedColor: Theme.of(context).primaryColor,
+              currentIndex: _currentIndex,
+            ),
     );
   }
 }

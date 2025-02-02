@@ -1,8 +1,7 @@
-import 'package:example/views/language_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:neubrutalism_ui/neubrutalism_ui.dart';
-import 'theme_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -46,12 +45,7 @@ class SettingsScreen extends StatelessWidget {
                 buttonColor: Theme.of(context).colorScheme.primary,
                 borderRadius: BorderRadius.circular(16),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ThemeScreen(),
-                    ),
-                  );
+                  context.go('/settings/theme');
                 },
                 enableAnimation: true,
                 child: ListTile(
@@ -100,12 +94,7 @@ class SettingsScreen extends StatelessWidget {
                 buttonColor: Theme.of(context).colorScheme.secondary,
                 borderRadius: BorderRadius.circular(16),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const LanguageScreen(),
-                    ),
-                  );
+                  context.go('/settings/language');
                 },
                 enableAnimation: true,
                 child: ListTile(
