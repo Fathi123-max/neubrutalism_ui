@@ -58,7 +58,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF0E4E4),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: widget.child,
       bottomNavigationBar: NeuBottomNav(
         icons: const [
@@ -67,12 +67,13 @@ class _MainScreenState extends State<MainScreen> {
           Icons.settings,
         ],
         isFloating: true,
-        initialIconColor: Colors.black,
-        navBarColor: const Color(0xFFF0E4E4),
+        initialIconColor:
+            Theme.of(context).textTheme.bodyLarge?.color ?? Colors.black,
+        navBarColor: Theme.of(context).scaffoldBackgroundColor,
         onIconTap: _onDestinationSelected,
         autoHideOnScroll: false,
         scrollController: _scrollController,
-        isSelectedColor: Colors.black,
+        isSelectedColor: Theme.of(context).primaryColor,
         currentIndex: _currentIndex,
       ),
     );

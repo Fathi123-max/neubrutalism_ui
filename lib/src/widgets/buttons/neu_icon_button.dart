@@ -28,7 +28,7 @@ class NeuIconButton extends NeuButton {
 
   NeuIconButton({
     Key? key,
-required enableAnimation,
+    required enableAnimation,
     required this.icon,
     int animationDuration = 100,
     Color borderColor = neuBlack,

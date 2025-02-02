@@ -8,7 +8,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF0E4E4),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -19,9 +19,10 @@ class HomeScreen extends StatelessWidget {
                 Text(
                   'Home',
                   style: GoogleFonts.pressStart2p(
-                    textStyle: const TextStyle(
+                    textStyle: TextStyle(
                       fontSize: 32,
-                      color: Colors.black,
+                      color: Theme.of(context).textTheme.bodyLarge?.color ??
+                          Colors.black,
                       height: 1.2,
                     ),
                   ),
@@ -189,9 +190,13 @@ class HomeScreen extends StatelessWidget {
                         Text(
                           'Statistics',
                           style: GoogleFonts.pressStart2p(
-                            textStyle: const TextStyle(
+                            textStyle: TextStyle(
                               fontSize: 20,
-                              color: Colors.black,
+                              color: Theme.of(context)
+                                      .textTheme
+                                      .bodyLarge
+                                      ?.color ??
+                                  Colors.black,
                             ),
                           ),
                         ),
@@ -200,7 +205,7 @@ class HomeScreen extends StatelessWidget {
                     NeuIconButton(
                       onPressed: () {},
                       icon: const Icon(Icons.refresh),
-                      buttonColor: Colors.white,
+                      buttonColor: Theme.of(context).scaffoldBackgroundColor,
                       enableAnimation: true,
                     ),
                   ],
@@ -283,9 +288,10 @@ class HomeScreen extends StatelessWidget {
                     Text(
                       'Recent Analysis',
                       style: GoogleFonts.pressStart2p(
-                        textStyle: const TextStyle(
+                        textStyle: TextStyle(
                           fontSize: 20,
-                          color: Colors.black,
+                          color: Theme.of(context).textTheme.bodyLarge?.color ??
+                              Colors.black,
                         ),
                       ),
                     ),

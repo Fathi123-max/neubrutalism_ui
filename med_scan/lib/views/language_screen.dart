@@ -15,7 +15,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF0E4E4),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -29,17 +29,18 @@ class _LanguageScreenState extends State<LanguageScreen> {
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      icon: const Icon(Icons.arrow_back),
-                      buttonColor: Colors.white,
+                      icon: Icon(Icons.arrow_back,
+                          color: Theme.of(context).iconTheme.color),
+                      buttonColor: Theme.of(context).cardColor,
                       enableAnimation: true,
                     ),
                     const SizedBox(width: 16),
                     Text(
                       'Language',
                       style: GoogleFonts.pressStart2p(
-                        textStyle: const TextStyle(
+                        textStyle: TextStyle(
                           fontSize: 32,
-                          color: Colors.black,
+                          color: Theme.of(context).textTheme.bodyLarge?.color,
                           height: 1.2,
                         ),
                       ),
@@ -50,9 +51,13 @@ class _LanguageScreenState extends State<LanguageScreen> {
                 Text(
                   'Select your preferred language',
                   style: GoogleFonts.pressStart2p(
-                    textStyle: const TextStyle(
+                    textStyle: TextStyle(
                       fontSize: 14,
-                      color: Colors.black54,
+                      color: Theme.of(context)
+                          .textTheme
+                          .bodyMedium
+                          ?.color
+                          ?.withOpacity(0.6),
                       height: 1.5,
                     ),
                   ),
@@ -104,7 +109,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
           SnackBar(
             content: Text('Selected language: $language'),
             duration: const Duration(seconds: 1),
-            backgroundColor: const Color(0xFF9fb7f4),
+            backgroundColor: Theme.of(context).primaryColor,
             behavior: SnackBarBehavior.floating,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
@@ -112,7 +117,9 @@ class _LanguageScreenState extends State<LanguageScreen> {
           ),
         );
       },
-      buttonColor: isSelected ? const Color(0xFF9fb7f4) : Colors.white,
+      buttonColor: isSelected
+          ? Theme.of(context).primaryColor
+          : Theme.of(context).cardColor,
       enableAnimation: true,
       borderRadius: BorderRadius.circular(12),
       child: Padding(
@@ -121,7 +128,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
           children: [
             Text(
               flag,
-              style: const TextStyle(fontSize: 28),
+              style: const TextStyle(fontSize: 25, height: 1),
             ),
             const SizedBox(width: 16),
             Expanded(
@@ -130,7 +137,9 @@ class _LanguageScreenState extends State<LanguageScreen> {
                 style: GoogleFonts.pressStart2p(
                   textStyle: TextStyle(
                     fontSize: 16,
-                    color: isSelected ? Colors.white : Colors.black87,
+                    color: isSelected
+                        ? Theme.of(context).primaryTextTheme.bodyLarge?.color
+                        : Theme.of(context).textTheme.bodyLarge?.color,
                     height: 1.2,
                   ),
                 ),
@@ -138,9 +147,9 @@ class _LanguageScreenState extends State<LanguageScreen> {
               ),
             ),
             if (isSelected)
-              const Icon(
+              Icon(
                 Icons.check_circle,
-                color: Colors.white,
+                color: Theme.of(context).primaryTextTheme.bodyLarge?.color,
                 size: 24,
               ),
           ],

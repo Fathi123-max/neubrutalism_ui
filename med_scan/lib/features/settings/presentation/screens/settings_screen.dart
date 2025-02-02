@@ -10,7 +10,7 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF0E4E4),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(24.0),
@@ -21,9 +21,9 @@ class SettingsScreen extends StatelessWidget {
               Text(
                 'Settings',
                 style: GoogleFonts.pressStart2p(
-                  textStyle: const TextStyle(
+                  textStyle: TextStyle(
                     fontSize: 32,
-                    color: Colors.black,
+                    color: Theme.of(context).textTheme.bodyLarge?.color,
                     height: 1.2,
                   ),
                 ),
@@ -43,7 +43,7 @@ class SettingsScreen extends StatelessWidget {
               NeuTextButton(
                 buttonHeight: 90,
                 buttonWidth: double.infinity,
-                buttonColor: const Color(0xFF9fb7f4),
+                buttonColor: Theme.of(context).colorScheme.primary,
                 borderRadius: BorderRadius.circular(16),
                 onPressed: () {
                   Navigator.push(
@@ -60,52 +60,44 @@ class SettingsScreen extends StatelessWidget {
                   leading: Container(
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Theme.of(context).colorScheme.surface,
                       borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: Colors.black, width: 2),
+                      border: Border.all(
+                          color: Theme.of(context).colorScheme.onSurface,
+                          width: 2),
                     ),
-                    child: const Icon(Icons.palette,
-                        size: 32, color: Colors.black),
+                    child: Icon(Icons.palette,
+                        size: 32,
+                        color: Theme.of(context).colorScheme.onSurface),
                   ),
                   title: Text(
                     'Theme',
                     style: GoogleFonts.inter(
-                      textStyle: const TextStyle(
+                      textStyle: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                        color: Theme.of(context).colorScheme.onPrimary,
                       ),
                     ),
                   ),
-                  subtitle: Text(
-                    'Customize app appearance',
-                    style: GoogleFonts.inter(
-                      textStyle: const TextStyle(
-                        fontSize: 14,
-                        color: Colors.black87,
-                      ),
-                    ),
-                  ),
-                  trailing:
-                      const Icon(Icons.arrow_forward_ios, color: Colors.black),
                 ),
               ),
               const SizedBox(height: 32),
               Text(
                 'Preferences',
                 style: GoogleFonts.pressStart2p(
-                  textStyle: const TextStyle(
-                    fontSize: 16,
-                    color: Colors.black54,
-                    height: 1.5,
-                  ),
+                  textStyle:
+                      Theme.of(context).textTheme.headlineLarge?.copyWith(
+                            color: Theme.of(context).textTheme.bodyLarge?.color,
+                            height: 1.2,
+                          ),
                 ),
               ),
               const SizedBox(height: 16),
               NeuTextButton(
                 buttonHeight: 90,
                 buttonWidth: double.infinity,
-                buttonColor: const Color(0xFF4CAF50),
+                buttonColor: Theme.of(context).colorScheme.secondary,
                 borderRadius: BorderRadius.circular(16),
                 onPressed: () {
                   Navigator.push(
@@ -122,12 +114,13 @@ class SettingsScreen extends StatelessWidget {
                   leading: Container(
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Theme.of(context).cardColor,
                       borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: Colors.black, width: 2),
+                      border: Border.all(
+                          color: Theme.of(context).dividerColor, width: 2),
                     ),
-                    child: const Icon(Icons.language,
-                        size: 32, color: Colors.black),
+                    child: Icon(Icons.language,
+                        size: 32, color: Theme.of(context).iconTheme.color),
                   ),
                   title: Text(
                     'Language',

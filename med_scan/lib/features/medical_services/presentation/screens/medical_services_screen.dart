@@ -9,7 +9,7 @@ class MedicalServicesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF0E4E4),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -20,10 +20,10 @@ class MedicalServicesScreen extends StatelessWidget {
                 Text(
                   'Medical Services',
                   style: GoogleFonts.pressStart2p(
-                    textStyle: const TextStyle(
-                      fontSize: 28,
-                      color: Colors.black,
-                    ),
+                    textStyle:
+                        Theme.of(context).textTheme.displayLarge?.copyWith(
+                              fontSize: 28,
+                            ),
                   ),
                 ),
                 const SizedBox(height: 24),
@@ -45,7 +45,8 @@ class MedicalServicesScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(16.0),
                     child: Row(
                       children: [
-                        const Icon(Icons.analytics, size: 48),
+                        Icon(Icons.analytics,
+                            size: 48, color: Theme.of(context).iconTheme.color),
                         const SizedBox(width: 16),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,9 +65,12 @@ class MedicalServicesScreen extends StatelessWidget {
                             Text(
                               'View your past analyses',
                               style: GoogleFonts.inter(
-                                textStyle: const TextStyle(
+                                textStyle: TextStyle(
                                   fontSize: 14,
-                                  color: Colors.black87,
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .bodyLarge
+                                      ?.color,
                                 ),
                               ),
                             ),
@@ -90,7 +94,8 @@ class MedicalServicesScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(16.0),
                     child: Row(
                       children: [
-                        const Icon(Icons.description, size: 48),
+                        Icon(Icons.description,
+                            size: 48, color: Theme.of(context).iconTheme.color),
                         const SizedBox(width: 16),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -109,9 +114,12 @@ class MedicalServicesScreen extends StatelessWidget {
                             Text(
                               'Access detailed reports',
                               style: GoogleFonts.inter(
-                                textStyle: const TextStyle(
+                                textStyle: TextStyle(
                                   fontSize: 14,
-                                  color: Colors.black87,
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium
+                                      ?.color,
                                 ),
                               ),
                             ),
