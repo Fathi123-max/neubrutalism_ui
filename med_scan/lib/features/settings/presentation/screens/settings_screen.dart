@@ -86,11 +86,11 @@ class SettingsScreen extends StatelessWidget {
               Text(
                 'Preferences',
                 style: GoogleFonts.pressStart2p(
-                  textStyle:
-                      Theme.of(context).textTheme.headlineLarge?.copyWith(
-                            color: Theme.of(context).textTheme.bodyLarge?.color,
-                            height: 1.2,
-                          ),
+                  textStyle: TextStyle(
+                    fontSize: 16,
+                    color: Theme.of(context).textTheme.bodyLarge?.color,
+                    height: 1.5,
+                  ),
                 ),
               ),
               const SizedBox(height: 16),
@@ -114,35 +114,37 @@ class SettingsScreen extends StatelessWidget {
                   leading: Container(
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      color: Theme.of(context).cardColor,
+                      color: Theme.of(context).colorScheme.surface,
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(
-                          color: Theme.of(context).dividerColor, width: 2),
+                          color: Theme.of(context).colorScheme.onSurface,
+                          width: 2),
                     ),
                     child: Icon(Icons.language,
-                        size: 32, color: Theme.of(context).iconTheme.color),
+                        size: 32,
+                        color: Theme.of(context).colorScheme.onSurface),
                   ),
                   title: Text(
                     'Language',
                     style: GoogleFonts.inter(
-                      textStyle: const TextStyle(
+                      textStyle: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                        color: Theme.of(context).colorScheme.onPrimary,
                       ),
                     ),
                   ),
                   subtitle: Text(
                     'Change app language',
                     style: GoogleFonts.inter(
-                      textStyle: const TextStyle(
+                      textStyle: TextStyle(
                         fontSize: 14,
-                        color: Colors.black87,
+                        color: Theme.of(context).colorScheme.onSecondary,
                       ),
                     ),
                   ),
-                  trailing:
-                      const Icon(Icons.arrow_forward_ios, color: Colors.black),
+                  trailing: Icon(Icons.arrow_forward_ios,
+                      color: Theme.of(context).colorScheme.onSecondary),
                 ),
               ),
             ],

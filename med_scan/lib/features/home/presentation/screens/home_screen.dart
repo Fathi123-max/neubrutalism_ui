@@ -31,22 +31,23 @@ class HomeScreen extends StatelessWidget {
                 NeuContainer(
                   height: 240,
                   width: double.infinity,
-                  color: const Color(0xFF9fb7f4),
+                  color: Theme.of(context).colorScheme.primary,
                   borderRadius: BorderRadius.circular(20),
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Icon(Icons.medical_information,
-                            size: 48, color: Colors.black),
+                        Icon(Icons.medical_information,
+                            size: 48,
+                            color: Theme.of(context).colorScheme.onPrimary),
                         const SizedBox(height: 12),
                         Text(
                           'AI Body Analysis',
                           style: GoogleFonts.pressStart2p(
-                            textStyle: const TextStyle(
+                            textStyle: TextStyle(
                               fontSize: 28,
-                              color: Colors.black,
+                              color: Theme.of(context).colorScheme.onPrimary,
                               height: 1.4,
                             ),
                           ),
@@ -57,15 +58,18 @@ class HomeScreen extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(
                               horizontal: 12, vertical: 6),
                           decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.3),
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onPrimary
+                                .withOpacity(0.3),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: Text(
                             'Take a photo to analyze',
                             style: GoogleFonts.inter(
-                              textStyle: const TextStyle(
+                              textStyle: TextStyle(
                                 fontSize: 18,
-                                color: Colors.black87,
+                                color: Theme.of(context).colorScheme.onPrimary,
                                 fontWeight: FontWeight.w500,
                                 height: 1.4,
                               ),
@@ -83,21 +87,24 @@ class HomeScreen extends StatelessWidget {
                       child: NeuTextButton(
                         onPressed: () {},
                         buttonHeight: 120,
-                        buttonColor: const Color(0xFFFFB74D),
+                        buttonColor: Theme.of(context).colorScheme.secondary,
                         borderRadius: BorderRadius.circular(20),
                         enableAnimation: true,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Icon(Icons.history_edu,
-                                size: 32, color: Colors.black),
+                            Icon(Icons.history_edu,
+                                size: 32,
+                                color:
+                                    Theme.of(context).colorScheme.onSecondary),
                             const SizedBox(height: 8),
                             Text(
                               'History',
                               style: GoogleFonts.pressStart2p(
-                                textStyle: const TextStyle(
+                                textStyle: TextStyle(
                                   fontSize: 14,
-                                  color: Colors.black,
+                                  color:
+                                      Theme.of(context).colorScheme.onSecondary,
                                 ),
                               ),
                             ),
@@ -110,21 +117,24 @@ class HomeScreen extends StatelessWidget {
                       child: NeuTextButton(
                         onPressed: () {},
                         buttonHeight: 120,
-                        buttonColor: const Color(0xFF81C784),
+                        buttonColor: Theme.of(context).colorScheme.tertiary,
                         borderRadius: BorderRadius.circular(20),
                         enableAnimation: true,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Icon(Icons.medical_services,
-                                size: 32, color: Colors.black),
+                            Icon(Icons.medical_services,
+                                size: 32,
+                                color:
+                                    Theme.of(context).colorScheme.onTertiary),
                             const SizedBox(height: 8),
                             Text(
                               'Services',
                               style: GoogleFonts.pressStart2p(
-                                textStyle: const TextStyle(
+                                textStyle: TextStyle(
                                   fontSize: 14,
-                                  color: Colors.black,
+                                  color:
+                                      Theme.of(context).colorScheme.onTertiary,
                                 ),
                               ),
                             ),
@@ -139,7 +149,7 @@ class HomeScreen extends StatelessWidget {
                   onPressed: () {},
                   buttonHeight: 220,
                   buttonWidth: double.infinity,
-                  buttonColor: const Color(0xFF4CAF50),
+                  buttonColor: Theme.of(context).colorScheme.primary,
                   borderRadius: BorderRadius.circular(20),
                   enableAnimation: true,
                   child: Column(
@@ -148,19 +158,23 @@ class HomeScreen extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.2),
+                          color: Theme.of(context)
+                              .colorScheme
+                              .onPrimary
+                              .withOpacity(0.2),
                           shape: BoxShape.circle,
                         ),
-                        child: const Icon(Icons.camera_alt,
-                            size: 56, color: Colors.black),
+                        child: Icon(Icons.camera_alt,
+                            size: 56,
+                            color: Theme.of(context).colorScheme.onPrimary),
                       ),
                       const SizedBox(height: 20),
                       Text(
                         'Take Photo',
                         style: GoogleFonts.pressStart2p(
-                          textStyle: const TextStyle(
+                          textStyle: TextStyle(
                             fontSize: 24,
-                            color: Colors.black,
+                            color: Theme.of(context).colorScheme.onPrimary,
                             height: 1.2,
                           ),
                         ),
@@ -171,7 +185,10 @@ class HomeScreen extends StatelessWidget {
                         style: GoogleFonts.inter(
                           textStyle: TextStyle(
                             fontSize: 16,
-                            color: Colors.black.withOpacity(0.8),
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onPrimary
+                                .withOpacity(0.8),
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -185,7 +202,9 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        const Icon(Icons.analytics_outlined, size: 24),
+                        Icon(Icons.analytics_outlined,
+                            size: 24,
+                            color: Theme.of(context).colorScheme.onBackground),
                         const SizedBox(width: 12),
                         Text(
                           'Statistics',
@@ -204,7 +223,8 @@ class HomeScreen extends StatelessWidget {
                     ),
                     NeuIconButton(
                       onPressed: () {},
-                      icon: const Icon(Icons.refresh),
+                      icon: Icon(Icons.refresh,
+                          color: Theme.of(context).colorScheme.onBackground),
                       buttonColor: Theme.of(context).scaffoldBackgroundColor,
                       enableAnimation: true,
                     ),
@@ -216,7 +236,7 @@ class HomeScreen extends StatelessWidget {
                     Expanded(
                       child: NeuContainer(
                         height: 100,
-                        color: const Color(0xFFE57373),
+                        color: Theme.of(context).colorScheme.secondary,
                         borderRadius: BorderRadius.circular(20),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -224,9 +244,10 @@ class HomeScreen extends StatelessWidget {
                             Text(
                               '12',
                               style: GoogleFonts.pressStart2p(
-                                textStyle: const TextStyle(
+                                textStyle: TextStyle(
                                   fontSize: 24,
-                                  color: Colors.black,
+                                  color:
+                                      Theme.of(context).colorScheme.onSecondary,
                                 ),
                               ),
                             ),
@@ -234,9 +255,10 @@ class HomeScreen extends StatelessWidget {
                             Text(
                               'Scans',
                               style: GoogleFonts.inter(
-                                textStyle: const TextStyle(
+                                textStyle: TextStyle(
                                   fontSize: 14,
-                                  color: Colors.black87,
+                                  color:
+                                      Theme.of(context).colorScheme.onSecondary,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
@@ -249,7 +271,7 @@ class HomeScreen extends StatelessWidget {
                     Expanded(
                       child: NeuContainer(
                         height: 100,
-                        color: const Color(0xFF64B5F6),
+                        color: Theme.of(context).colorScheme.tertiary,
                         borderRadius: BorderRadius.circular(20),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -257,9 +279,10 @@ class HomeScreen extends StatelessWidget {
                             Text(
                               '3',
                               style: GoogleFonts.pressStart2p(
-                                textStyle: const TextStyle(
+                                textStyle: TextStyle(
                                   fontSize: 24,
-                                  color: Colors.black,
+                                  color:
+                                      Theme.of(context).colorScheme.onTertiary,
                                 ),
                               ),
                             ),
@@ -267,9 +290,10 @@ class HomeScreen extends StatelessWidget {
                             Text(
                               'Reports',
                               style: GoogleFonts.inter(
-                                textStyle: const TextStyle(
+                                textStyle: TextStyle(
                                   fontSize: 14,
-                                  color: Colors.black87,
+                                  color:
+                                      Theme.of(context).colorScheme.onTertiary,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
@@ -283,7 +307,9 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(height: 32),
                 Row(
                   children: [
-                    const Icon(Icons.history, size: 24),
+                    Icon(Icons.history,
+                        size: 24,
+                        color: Theme.of(context).colorScheme.onBackground),
                     const SizedBox(width: 12),
                     Text(
                       'Recent Analysis',
@@ -301,32 +327,41 @@ class HomeScreen extends StatelessWidget {
                 NeuContainer(
                   height: 120,
                   width: double.infinity,
-                  color: Colors.white,
+                  color: Theme.of(context).cardColor,
                   borderRadius: BorderRadius.circular(20),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(
+                      Icon(
                         Icons.add_photo_alternate_outlined,
                         size: 32,
-                        color: Colors.black54,
+                        color: Theme.of(context)
+                            .colorScheme
+                            .onBackground
+                            .withOpacity(0.6),
                       ),
                       const SizedBox(height: 8),
                       Text(
                         'No recent analysis',
                         style: GoogleFonts.inter(
-                          textStyle: const TextStyle(
+                          textStyle: TextStyle(
                             fontSize: 16,
-                            color: Colors.black54,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onBackground
+                                .withOpacity(0.6),
                           ),
                         ),
                       ),
                       Text(
                         'Take your first scan',
                         style: GoogleFonts.inter(
-                          textStyle: const TextStyle(
+                          textStyle: TextStyle(
                             fontSize: 14,
-                            color: Colors.black38,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onBackground
+                                .withOpacity(0.4),
                           ),
                         ),
                       ),

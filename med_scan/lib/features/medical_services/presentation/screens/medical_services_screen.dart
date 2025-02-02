@@ -20,17 +20,20 @@ class MedicalServicesScreen extends StatelessWidget {
                 Text(
                   'Medical Services',
                   style: GoogleFonts.pressStart2p(
-                    textStyle:
-                        Theme.of(context).textTheme.displayLarge?.copyWith(
-                              fontSize: 28,
-                            ),
+                    textStyle: Theme.of(context)
+                        .textTheme
+                        .displayLarge
+                        ?.copyWith(
+                          fontSize: 28,
+                          color: Theme.of(context).textTheme.bodyLarge?.color,
+                        ),
                   ),
                 ),
                 const SizedBox(height: 24),
                 NeuTextButton(
                   buttonHeight: 120,
                   buttonWidth: double.infinity,
-                  buttonColor: const Color(0xFF9fb7f4),
+                  buttonColor: Theme.of(context).colorScheme.primary,
                   borderRadius: BorderRadius.circular(20),
                   onPressed: () {
                     Navigator.push(
@@ -55,10 +58,13 @@ class MedicalServicesScreen extends StatelessWidget {
                             Text(
                               'Analysis History',
                               style: GoogleFonts.inter(
-                                textStyle: const TextStyle(
+                                textStyle: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.black,
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .bodyLarge
+                                      ?.color,
                                 ),
                               ),
                             ),
@@ -69,7 +75,7 @@ class MedicalServicesScreen extends StatelessWidget {
                                   fontSize: 14,
                                   color: Theme.of(context)
                                       .textTheme
-                                      .bodyLarge
+                                      .bodyMedium
                                       ?.color,
                                 ),
                               ),
@@ -84,7 +90,7 @@ class MedicalServicesScreen extends StatelessWidget {
                 NeuTextButton(
                   buttonHeight: 120,
                   buttonWidth: double.infinity,
-                  buttonColor: const Color(0xFF4CAF50),
+                  buttonColor: Theme.of(context).colorScheme.secondary,
                   borderRadius: BorderRadius.circular(20),
                   onPressed: () {
                     // Handle medical reports tap
@@ -104,10 +110,13 @@ class MedicalServicesScreen extends StatelessWidget {
                             Text(
                               'Medical Reports',
                               style: GoogleFonts.inter(
-                                textStyle: const TextStyle(
+                                textStyle: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.black,
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .bodyLarge
+                                      ?.color,
                                 ),
                               ),
                             ),
