@@ -1,4 +1,6 @@
+import 'package:example/features/camera/presentation/screens/camera_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:neubrutalism_ui/neubrutalism_ui.dart';
 
@@ -146,7 +148,9 @@ class HomeScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 NeuTextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.push('/camera');
+                  },
                   buttonHeight: 220,
                   buttonWidth: double.infinity,
                   buttonColor: Theme.of(context).colorScheme.primary,

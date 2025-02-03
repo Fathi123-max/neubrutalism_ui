@@ -7,6 +7,7 @@ import 'package:example/views/main_screen.dart';
 import 'package:example/features/medical_services/presentation/screens/medical_services_screen.dart';
 import 'package:example/features/settings/presentation/screens/settings_screen.dart';
 import 'package:example/features/settings/presentation/screens/theme_screen.dart';
+import 'package:example/features/camera/presentation/screens/camera_screen.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey =
     GlobalKey<NavigatorState>(debugLabel: 'root');
@@ -60,6 +61,25 @@ class AppRouter {
             ],
           ),
         ],
+      ),
+      GoRoute(
+        path: '/camera',
+        pageBuilder: (context, state) => CustomTransitionPage<void>(
+          child: const CameraScreen(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            const begin = Offset(0.0, 1.0);
+            const end = Offset.zero;
+            const curve = Curves.easeInOut;
+            var tween =
+                Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+            var offsetAnimation = animation.drive(tween);
+            return SlideTransition(
+              position: offsetAnimation,
+              child: child,
+            );
+          },
+          transitionDuration: const Duration(milliseconds: 300),
+        ),
       ),
     ],
     errorBuilder: (context, state) => Scaffold(

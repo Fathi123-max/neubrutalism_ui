@@ -1,5 +1,9 @@
 PODS:
+  - camerawesome (0.0.1):
+    - Flutter
+    - JPSVolumeButtonHandler
   - Flutter (1.0.0)
+  - JPSVolumeButtonHandler (1.0.5)
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -10,12 +14,19 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
+  - camerawesome (from `.symlinks/plugins/camerawesome/ios`)
   - Flutter (from `Flutter`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
 
+SPEC REPOS:
+  trunk:
+    - JPSVolumeButtonHandler
+
 EXTERNAL SOURCES:
+  camerawesome:
+    :path: ".symlinks/plugins/camerawesome/ios"
   Flutter:
     :path: Flutter
   path_provider_foundation:
@@ -26,7 +37,9 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
 
 SPEC CHECKSUMS:
+  camerawesome: ae69de297ab1a69a0bcaeef8797d3045ed57172f
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  JPSVolumeButtonHandler: 53110330c9168ed325def93eabff39f0fe3e8082
   path_provider_foundation: 080d55be775b7414fd5a5ef3ac137b97b097e564
   shared_preferences_foundation: 9e1978ff2562383bd5676f64ec4e9aa8fa06a6f7
   url_launcher_ios: 694010445543906933d732453a59da0a173ae33d

@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class AppConfig {
+  static String get geminiApiKey {
+    final apiKey = dotenv.env['GEMINI_API_KEY'] ?? '';
+    if (apiKey.isEmpty) {
+      throw Exception('GEMINI_API_KEY not found in environment variables');
+    }
+    return apiKey;
+  }
+
   static const String appName = 'MedScan';
 
   // API Configuration

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:neubrutalism_ui/neubrutalism_ui.dart';
-import 'analysis_history_screen.dart';
 
 class MedicalServicesScreen extends StatelessWidget {
   const MedicalServicesScreen({Key? key}) : super(key: key);

@@ -137,6 +137,11 @@ class NeuButtonState extends State<NeuButton>
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      hoverColor: Colors.transparent,
+      splashColor: Colors.transparent,
+      focusColor: Colors.transparent,
+      overlayColor: MaterialStateProperty.all(Colors.transparent),
+      highlightColor: Colors.transparent,
       onTap: () {
         var doOnPressedAction = () => {
               if (widget.onPressed != null) {widget.onPressed!()}

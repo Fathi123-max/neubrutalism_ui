@@ -35,14 +35,17 @@ class _LanguageScreenState extends State<LanguageScreen> {
                       enableAnimation: true,
                     ),
                     const SizedBox(width: 16),
-                    Text(
-                      'Language',
-                      style: GoogleFonts.pressStart2p(
-                        textStyle: TextStyle(
-                          fontSize: 32,
-                          color: Theme.of(context).textTheme.bodyLarge?.color,
-                          height: 1.2,
+                    Flexible(
+                      child: Text(
+                        'Language',
+                        style: GoogleFonts.pressStart2p(
+                          textStyle: TextStyle(
+                            fontSize: 28, // Reduced font size
+                            color: Theme.of(context).textTheme.bodyLarge?.color,
+                            height: 1.2,
+                          ),
                         ),
+                        overflow: TextOverflow.ellipsis, // Handle text overflow
                       ),
                     ),
                   ],
