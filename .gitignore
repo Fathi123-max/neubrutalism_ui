@@ -41,3 +41,5 @@ app.*.map.json
 
 # Test related
 coverage
+config.bat
+node_modules
